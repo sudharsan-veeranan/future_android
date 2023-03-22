@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * Created by sudharsan at 3/15/2023
  */
-class CardAdapter(var carList : ArrayList<Cars>) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+class CardAdapter(var userDataList : List<UsersData>) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         var rvViewCar = LayoutInflater.from(parent.context).inflate(R.layout.card_layout,parent,false)
@@ -18,23 +18,22 @@ class CardAdapter(var carList : ArrayList<Cars>) : RecyclerView.Adapter<CardAdap
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        holder.setCardViewHolder(carList[position])
+        holder.setCardViewHolder(userDataList[position])
     }
 
     override fun getItemCount(): Int {
-        return carList.size
+        return userDataList.size
     }
 
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun setCardViewHolder(cars: Cars){
-            var carImgView = itemView.findViewById<ImageView>(R.id.carImgViewCardView)
-            var carBrandTV = itemView.findViewById<TextView>(R.id.cardBrandTV)
-            var carVehLineTV = itemView.findViewById<TextView>(R.id.carVehLineTV)
+        fun setCardViewHolder(users : UsersData){
+//            var cardImgView = itemView.findViewById<ImageView>(R.id.imgCardView)
+            var cardNameTextView = itemView.findViewById<TextView>(R.id.tv_name)
+            var cardEmailTextView = itemView.findViewById<TextView>(R.id.tv_email)
 
-            carImgView.setImageResource(cars.carImg)
-            carBrandTV.setText(cars.brandName)
-            carVehLineTV.setText(cars.vehicleLine)
+            cardNameTextView.text = users.name
+            cardEmailTextView.text = users.email
         }
     }
 }
