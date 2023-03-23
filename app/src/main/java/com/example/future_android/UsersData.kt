@@ -5,5 +5,5 @@ package com.example.future_android
  */
 
 // Data class for the user data fetched from API
-data class UsersData(var name:String, var email:String) {
+data class UsersData(var id:String, var name:String, var username:String, var email:String, var phone:String, var website:String) {
 }

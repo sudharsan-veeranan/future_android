@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                     // --------------- Set data fetched from API -------------
                     if(response.isSuccessful){
                         recyclerViewMA.layoutManager = layoutMgr
-                        recyclerViewMA.adapter = CardAdapter(userDataList)
+                        recyclerViewMA.adapter = CardAdapter(userDataList,this@MainActivity)
                     }
                     for (user in userDataList) {
                         Log.d("mytag", "username is ${user.name} and email is ${user.email}")
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                     Log.d("mytag", "the error is in ${t}")
                 }
             })
-        }
+    }
 
 
 
