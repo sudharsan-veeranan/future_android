@@ -43,6 +43,8 @@ class CardAdapter(var userDataList : List<UsersData>,var context : Context) : Re
 
             var parentLayout = itemView.findViewById<CardView>(R.id.card_main_layout)
 
+            //TODO : Send serializable data instead on individual fields
+
             parentLayout.setOnClickListener {
                 var intent  = Intent( context ,DetailsActivity::class.java)
                 intent.putExtra("user_id",users.id)
